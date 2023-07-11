@@ -37,6 +37,7 @@ def checkListeningPort(address, port):
         _socket.close()
 
 class TorDriver:
+    # Largely inspired by the discussion here: https://stackoverflow.com/questions/15316304/open-tor-browser-with-selenium
     host = 'localhost'
     port = 9150
     _binary = FirefoxBinary(r'/home/username/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/firefox')
