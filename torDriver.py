@@ -44,6 +44,13 @@ class TorDriver:
     geckodriverPath = "."
     geckodriverExecutable=f"./geckodriver"
 
+    # Allow for overriding the binary and profile locations
+    def __init__(self, binaryLocation=None, profileLocation=None):
+        if binaryLocation:
+            self._binary = FirefoxBinary(binaryLocation)
+        if profileLocation:
+            self._profileTor = profileLocation
+
     # Sets up the firefox profile for the webdriver instance. 
     def setupProfile(self):
         _profile = FirefoxProfile(self._profileTor)
@@ -61,7 +68,12 @@ class TorDriver:
         _profile.set_preference("network.proxy.socks", '127.0.0.1')
         _profile.set_preference("network.proxy.socks_port", 9150)
         _profile.set_preference("network.proxy.socks_remote_dns", True)
-        _profile.set_preference("javascript.enabled", False)
+    
+        ##############################
+        # This disables javascript, which may break some sites.
+        _profile.set_preference("javascript.enabled", False) # !!!!!
+        ##############################
+
         _profile.set_preference("permissions.default.image", 2)
         _profile.set_preference("http.response.timeout", 120000)
         _profile.set_preference("dom.max_script_run_time", 120000)
@@ -92,9 +104,3 @@ class TorDriver:
                 print(e)
                 pass
 
-    # Allow for overriding the binary and profile locations
-    def __init__(self, binaryLocation=None, profileLocation=None):
-        if binaryLocation:
-            self._binary = FirefoxBinary(binaryLocation)
-        if profileLocation:
-            self._profileTor = profileLocation
