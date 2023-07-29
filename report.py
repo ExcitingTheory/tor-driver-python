@@ -3,6 +3,8 @@ import glob
 import csv
 import json
 import pprint
+import re
+import urllib.parse
 
 searchesToProcess = []
 blankRow = {
@@ -32,7 +34,20 @@ with open('output.csv', 'w') as csvfile:
             writer.writerow(searchItem)
             for link in _artifacts:
                 _blankRow = blankRow
-                _blankRow["artifacts"] = f"=HYPERLINK(\"{link.get('link')}\", \"{link.get('data')}\")"
+                data = link.get('data')
+                linkName = ""
+                if data and len(data) > 0:
+                    linkName = data
+                else:
+                    _link = link.get('link')
+                    _parsed = urllib.parse.urlparse(_link)
+                    if _parsed.path:
+                        linkName = _parsed.path
+                    else:
+                        linkName = _parsed.netloc
+                
+                linkName = re.sub(r'"', '', linkName) # Remove double quotes from the link name because it will break the CSV.
+                _blankRow["artifacts"] = f"=HYPERLINK(\"{link.get('link')}\", \"{linkName}\")"
                 writer.writerow(_blankRow)
         else:
             print("No artifacts")
