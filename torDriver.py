@@ -135,7 +135,7 @@ class TorDriver:
 
         options = Options()
         options.binary_location = self._binary
-        # options.headless = True
+        # options.headless = True # uncomment this to run headless
         options.profile = self.setupProfile()
 
         _driver = webdriver.Firefox(service=service, options=options)
