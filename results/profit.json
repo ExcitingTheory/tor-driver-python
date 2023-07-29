@@ -1,0 +1,544 @@
+{
+    "name": "Profit",
+    "file": "./results/profit.json",
+    "search": "Profit ",
+    "orig": "Profit\n",
+    "num": "",
+    "artifacts": [
+        {
+            "data": "Jump to content",
+            "link": "https://en.wikipedia.org/wiki/Profit#bodyContent",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Main_Page",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Wikipedia:Contents",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Portal:Current_events",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Special:Random",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Wikipedia:About",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Wikipedia:Contact_us",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&utm_medium=sidebar&utm_campaign=C13_en.wikipedia.org&uselang=en",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Help:Contents",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Help:Introduction",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Wikipedia:Community_portal",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Special:RecentChanges",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Wikipedia:File_upload_wizard",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Main_Page",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Special:Search",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Create account",
+            "link": "https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&returnto=Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Log in",
+            "link": "https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&returnto=Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Help:Introduction",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Special:MyContributions",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Special:MyTalk",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "(Top)",
+            "link": "https://en.wikipedia.org/wiki/Profit#",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Business and law",
+            "link": "https://en.wikipedia.org/wiki/Profit#Business_and_law",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Arts, entertainment, and media",
+            "link": "https://en.wikipedia.org/wiki/Profit#Arts,_entertainment,_and_media",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "People",
+            "link": "https://en.wikipedia.org/wiki/Profit#People",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Places",
+            "link": "https://en.wikipedia.org/wiki/Profit#Places",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "See also",
+            "link": "https://en.wikipedia.org/wiki/Profit#See_also",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://de.wikipedia.org/wiki/Profit_(Begriffskl%C3%A4rung)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://fa.wikipedia.org/wiki/%D8%B3%D9%88%D8%AF",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://fr.wikipedia.org/wiki/Profit_(homonymie)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://it.wikipedia.org/wiki/Profit_(disambigua)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%83%E3%83%88",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://th.wikipedia.org/wiki/%E0%B8%81%E0%B8%B3%E0%B9%84%E0%B8%A3",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://zh.wikipedia.org/wiki/%E5%88%A9%E6%B6%A6_(%E6%B6%88%E6%AD%A7%E4%B9%89)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://www.wikidata.org/wiki/Special:EntityPage/Q2112047#sitelinks-wikipedia",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Article",
+            "link": "https://en.wikipedia.org/wiki/Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Talk",
+            "link": "https://en.wikipedia.org/wiki/Talk:Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Read",
+            "link": "https://en.wikipedia.org/wiki/Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Edit",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&action=edit&editintro=Template:Disambig_editintro",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "View history",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&action=history",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&action=edit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&action=history",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Special:WhatLinksHere/Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Special:SpecialPages",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&oldid=1122643603",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&action=info",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&page=Profit&id=1122643603&wpFormIdentifier=titleform",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://www.wikidata.org/wiki/Special:EntityPage/Q2112047",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://www.wikidata.org/wiki/Special:EntityPage/Q2112047#sitelinks-wikipedia",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Profit&action=show-download-screen",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&printable=yes",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Prophet",
+            "link": "https://en.wikipedia.org/wiki/Prophet",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "profit",
+            "link": "https://en.wiktionary.org/wiki/profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "profitability",
+            "link": "https://en.wiktionary.org/wiki/profitability",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Profit",
+            "link": "https://en.wikiquote.org/wiki/Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "edit",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&action=edit&section=1&editintro=Template:Disambig_editintro",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Profit (accounting)",
+            "link": "https://en.wikipedia.org/wiki/Profit_(accounting)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Profit (economics)",
+            "link": "https://en.wikipedia.org/wiki/Profit_(economics)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Profit (real property)",
+            "link": "https://en.wikipedia.org/wiki/Profit_(real_property)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Account of profits",
+            "link": "https://en.wikipedia.org/wiki/Account_of_profits",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "edit",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&action=edit&section=2&editintro=Template:Disambig_editintro",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Profit (magazine)",
+            "link": "https://en.wikipedia.org/wiki/Profit_(magazine)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Profit (TV series)",
+            "link": "https://en.wikipedia.org/wiki/Profit_(TV_series)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "edit",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&action=edit&section=3&editintro=Template:Disambig_editintro",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Joe Profit",
+            "link": "https://en.wikipedia.org/wiki/Joe_Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Laron Profit",
+            "link": "https://en.wikipedia.org/wiki/Laron_Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Richard Profit",
+            "link": "https://en.wikipedia.org/wiki/Richard_Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Park \"Profit\" Joon-yeong",
+            "link": "https://en.wikipedia.org/wiki/Park_%22Profit%22_Joon-yeong",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "edit",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&action=edit&section=4&editintro=Template:Disambig_editintro",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Profit, United States Virgin Islands",
+            "link": "https://en.wikipedia.org/wiki/Profit,_United_States_Virgin_Islands",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "edit",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&action=edit&section=5&editintro=Template:Disambig_editintro",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Prophet (disambiguation)",
+            "link": "https://en.wikipedia.org/wiki/Prophet_(disambiguation)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "The Profit (disambiguation)",
+            "link": "https://en.wikipedia.org/wiki/The_Profit_(disambiguation)",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "All pages with titles beginning with Profit",
+            "link": "https://en.wikipedia.org/wiki/Special:PrefixIndex/Profit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "All pages with titles containing Profit",
+            "link": "https://en.wikipedia.org/wiki/Special:Search/intitle:%22Profit%22",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/File:Disambig_gray.svg",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "disambiguation",
+            "link": "https://en.wikipedia.org/wiki/Help:Disambiguation",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "internal link",
+            "link": "https://en.wikipedia.org/w/index.php?title=Special:WhatLinksHere/Profit&namespace=0",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/w/index.php?title=Profit&oldid=1122643603",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Categories",
+            "link": "https://en.wikipedia.org/wiki/Help:Category",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Disambiguation pages",
+            "link": "https://en.wikipedia.org/wiki/Category:Disambiguation_pages",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Disambiguation pages with surname-holder lists",
+            "link": "https://en.wikipedia.org/wiki/Category:Disambiguation_pages_with_surname-holder_lists",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Category:All_article_disambiguation_pages",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Category:All_disambiguation_pages",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Creative Commons Attribution-ShareAlike License 4.0",
+            "link": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Terms of Use",
+            "link": "https://foundation.wikimedia.org/wiki/Terms_of_Use",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Privacy Policy",
+            "link": "https://foundation.wikimedia.org/wiki/Privacy_policy",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Wikimedia Foundation, Inc.",
+            "link": "https://www.wikimediafoundation.org/",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Privacy policy",
+            "link": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "About Wikipedia",
+            "link": "https://en.wikipedia.org/wiki/Wikipedia:About",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Disclaimers",
+            "link": "https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Contact Wikipedia",
+            "link": "https://en.wikipedia.org/wiki/Wikipedia:Contact_us",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Code of Conduct",
+            "link": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Universal_Code_of_Conduct",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Mobile view",
+            "link": "https://en.m.wikipedia.org/w/index.php?title=Profit&mobileaction=toggle_view_mobile",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Developers",
+            "link": "https://developer.wikimedia.org/",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Statistics",
+            "link": "https://stats.wikimedia.org/#/en.wikipedia.org",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "Cookie statement",
+            "link": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Profit#",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://wikimediafoundation.org/",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://www.mediawiki.org/",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Profit?action=edit",
+            "parent": "https://en.wikipedia.org/wiki/Profit"
+        }
+    ]
+}
