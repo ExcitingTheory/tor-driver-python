@@ -9,8 +9,15 @@ import pprint
 import re
 import csv
 import json
+import urllib
+
 import torDriver
 
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 
 useFirstResult = True
 result = 0
@@ -23,7 +30,7 @@ key = 1
 
 torDriverInstance = torDriver.TorDriver()
 # Setup the TorBrowser and geckodriver
-torDriverInstance.downloadGeckodriver()
+# torDriverInstance.downloadGeckodriver() # TODO Fix in linux
 torDriverInstance.setupTor()
 
 # @description: Crawls from a search term
@@ -36,7 +43,7 @@ def crawlFromSearch(searchTerm):
     try:
         driver.get("https://searx.thegpm.org/")
         torDriver.isVisible(driver, "#q")
-        elem = driver.find_element_by_css_selector("#q")
+        elem = driver.find_element(By.CSS_SELECTOR, "#q")
         elem.clear()
         elem.send_keys(searchTerm)
         elem.send_keys(Keys.RETURN)
@@ -50,7 +57,7 @@ def crawlFromSearch(searchTerm):
 
     try:
         torDriver.isVisible(driver, "#main_results > div.result.result-default > h4 > a")
-        firstPageResults = driver.find_elements_by_css_selector("#main_results > div.result.result-default > h4 > a")
+        firstPageResults = driver.find_elements(By.CSS_SELECTOR, "#main_results > div.result.result-default > h4 > a")
     except Exception as e:
         print(e)
         driver.quit()
@@ -58,50 +65,57 @@ def crawlFromSearch(searchTerm):
     
     # Use just the first result for now.
     # Can start separate threads for each result here.
-    firstPageResults[0].click() 
+    pprint.pprint(firstPageResults)
+    thisUrl = firstPageResults[0].get_attribute('href')
+    firstPageResults[0].click()
+    # Wait for the page to load
 
-    # Wait for some seconds
     time.sleep(timeoutInSeconds)
-    # torDriver.isVisible(driver, "#links div.result")
+    torDriver.isVisible(driver, "a")
 
-    # try:
-    #     category = driver.find_elements_by_xpath("//a[contains(@href, 'companycredits')]")
-    #     category.location_once_scrolled_into_view
-    # except Exception as e:
-    #     print(e)
-    #     driver.quit()
-    #     raise SystemError("Literally cannot even find a category")
+    print("This url")
+    print(thisUrl)
+    pprint.pprint(thisUrl)
 
-    # # Use just the first result
-    # category[1].location_once_scrolled_into_view
-    # category[1].click()
+    _url = urllib.parse.urlparse(thisUrl)
+    print("Parsed url")
+    pprint.pprint(_url)
 
-    # # Wait for some seconds
-    # time.sleep(timeoutInSeconds)
+    allUrls = driver.find_elements(By.XPATH, "//a")
 
-    # try:
-    #     # https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator
-    #     subCategory = driver.find_element_by_xpath("//h4[@id='distributors']/following-sibling::ul[1]")
-    #     subCategory.location_once_scrolled_into_view
-    #     subCategoryListItems = driver.find_elements_by_xpath("//h4[@id='distributors']/following-sibling::ul[1]/li")
-    #     subCategoryListHrefs = driver.find_elements_by_xpath("//h4[@id='distributors']/following-sibling::ul[1]/li/a")
-    # except Exception as e:
-    #     print(e)
-    #     driver.quit()
-    #     raise SystemError("Literally cannot even find a sub category")
-    
-    parsedCollection = []
-    # intKey = 0
-    # for item in subCategoryListItems:
-    #     parsedObject = {
-    #         "data": item.text.encode('utf-8').strip(),
-    #         "link": subCategoryListHrefs[intKey].get_attribute("href").strip()
-    #     }
-    #     # print(parsedObject)
-    #     parsedCollection.append(parsedObject)
-    #     intKey += 1
+    print("All urls")
+    pprint.pprint(allUrls)
 
-    # driver.quit()
+    onPageUrls = []
+    offPageUrls = []
+
+    for url in allUrls:
+        print(url.get_attribute('href'))
+        urlHref = url.get_attribute('href')
+
+        if urlHref is not None:
+            if urlHref.startswith("http"):
+
+                if urlHref.startswith(f'{_url.scheme}://{_url.netloc}'):
+                    # Get all the on page urls
+                    print("On page")
+                    onPageUrls.append(urlHref)
+            else: 
+                # Get off page urls
+                print("Off page")
+                offPageUrls.append(urlHref)
+
+    print("On page urls")
+    pprint.pprint(onPageUrls)
+    print("Off page urls")
+    pprint.pprint(offPageUrls)
+
+    parsedCollection = [{
+        onPageUrls: onPageUrls,
+        offPageUrls: offPageUrls
+    }]
+
+    driver.quit()
 
     return parsedCollection
 
@@ -111,17 +125,21 @@ with open("searches.txt", "r") as fileHandler:
     listOfSearches = fileHandler.readlines()
 
 
+# For each term, search and then crawl.
+suffix = ""
+
 for searchTerm in listOfSearches:
     if searchTerm:
         # This Regex is inspired from a discussion about 
         # substituting characters that are not letters or numbers
         # https://stackoverflow.com/a/5843547/682915
-        strippedWithSpaces = re.sub(r'([^\s\w]|_)+', '', itemSubStrip)
+        strippedWithSpaces = re.sub(r'([^\s\w]|_)+', '', searchTerm).strip()
         strippedWithUnderbar = re.sub(r' ', '_', strippedWithSpaces)
+        strippedLower = strippedWithUnderbar.lower().strip()
         termsToSearch.append({
             "name": strippedWithSpaces,
-            "file": "./results/" + strippedWithUnderbar.lower() + ".json",
-            "search": ' '.join([strippedWithSpaces.lower(), 'imdb']),
+            "file": "./results/" + strippedLower + ".json",
+            "search": ' '.join([strippedWithSpaces, suffix]),
             "orig": searchTerm,
             "num": "",
             "artifacts": [{}]

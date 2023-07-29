@@ -5,6 +5,8 @@ import subprocess
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
@@ -36,11 +38,11 @@ def checkListeningPort(address, port):
 class TorDriver:
     host = 'localhost'
     port = 9150
-    _binary = FirefoxBinary(r'/home/username/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/firefox')
-    _profileTor = '/etc/tor/'
+    _binary = FirefoxBinary(r'/home/username/.local/share/torbrowser/tbb/x86_64/tor-browser/Browser/firefox')
+    _profileTor = '/home/username/.local/share/torbrowser/tbb/x86_64/tor-browser/Browser/TorBrowser/Data/Browser/profile.default'
     _defaultProfile = ''
     connected = False
-    geckodriverUrl = "https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz"
+    geckodriverUrl = "https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz"
     geckodriverPath = "."
     geckodriverExecutable=f"./geckodriver"
 
@@ -54,6 +56,44 @@ class TorDriver:
     # Sets up the firefox profile for the webdriver instance. 
     def setupProfile(self):
         _profile = FirefoxProfile(self._profileTor)
+
+        _profile.set_preference('browser.startup.page', "0")
+        _profile.set_preference('torbrowser.settings.quickstart.enabled', True)
+        _profile.set_preference('browser.startup.homepage', 'about:newtab')
+        _profile.set_preference('extensions.torlauncher.prompt_at_startup', 0)
+        # load strategy normal is equivalent to "onload"
+        _profile.set_preference('webdriver.load.strategy', 'normal')
+        # disable auto-update
+        _profile.set_preference('app.update.enabled', False)
+        _profile.set_preference('extensions.torbutton.versioncheck_enabled', False)
+        _profile.set_preference('extensions.torbutton.prompted_language', True)
+        # https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41378
+        _profile.set_preference('intl.language_notification.shown', True)
+        # Configure Firefox to use Tor SOCKS proxy
+        _profile.set_preference('network.proxy.socks_port', 9150)
+        _profile.set_preference('extensions.torbutton.socks_port', 9150)
+        _profile.set_preference('extensions.torlauncher.control_port', 9051)
+
+        _profile.set_preference('extensions.torlauncher.start_tor', False)
+        # TODO: investigate whether these prefs are up to date or not
+        _profile.set_preference('extensions.torbutton.block_disk', False)
+        _profile.set_preference('extensions.torbutton.custom.socks_host', '127.0.0.1')
+        _profile.set_preference('extensions.torbutton.custom.socks_port', 9150)
+        _profile.set_preference('extensions.torbutton.inserted_button', True)
+        _profile.set_preference('extensions.torbutton.launch_warning', False)
+        _profile.set_preference('privacy.spoof_english', 2)
+        _profile.set_preference('extensions.torbutton.loglevel', 2)
+        _profile.set_preference('extensions.torbutton.logmethod', 0)
+        _profile.set_preference('extensions.torbutton.settings_method', 'custom')
+        _profile.set_preference('extensions.torbutton.use_privoxy', False)
+        _profile.set_preference('extensions.torlauncher.control_port', 9051)
+        _profile.set_preference('extensions.torlauncher.loglevel', 2)
+        _profile.set_preference('extensions.torlauncher.logmethod', 0)
+        _profile.set_preference('extensions.torlauncher.prompt_at_startup', False)
+        # disable XPI signature checking
+        _profile.set_preference('xpinstall.signatures.required', False)
+        _profile.set_preference('xpinstall.whitelist.required', False)
+
         _profile.set_preference("places.history.enabled", False)
         _profile.set_preference("privacy.clearOnShutdown.offlineApps", True)
         _profile.set_preference("privacy.clearOnShutdown.passwords", True)
@@ -71,7 +111,7 @@ class TorDriver:
     
         ##############################
         # This disables javascript, which may break some sites.
-        _profile.set_preference("javascript.enabled", False) # !!!!!
+        # _profile.set_preference("javascript.enabled", False) # !!!!!
         ##############################
 
         _profile.set_preference("permissions.default.image", 2)
@@ -82,16 +122,19 @@ class TorDriver:
 
     # Sets up the webdriver and returns the instance
     def setupWebdriver(self):
-        _binary = self._binary
-        _profile = self.setupProfile()
-        
-        _driver = webdriver.Firefox(firefox_profile=_profile, firefox_binary=_binary)
-        return  _driver
+        service = Service(
+            executable_path=self.geckodriverExecutable,
+            service_log_path=self.geckodriverPath,
+        )
 
-    # Downloads the geckodriver executable
-    def downloadGeckodriver(self):
-        downloadProcess = subprocess.run(f"curl -r 3 -L {self.geckodriverUrl} | tar -xvz -C {self.geckodriverPath}", shell=True, check=True)
-        pprint.pprint(downloadProcess)
+        options = Options()
+        options.binary_location = self._binary
+        # options.headless = True
+        options.profile = self.setupProfile()
+
+        _driver = webdriver.Firefox(service=service, options=options)
+
+        return  _driver
 
     # Run torbrowser-launcher and wait for the port to be listening
     def setupTor(self):
