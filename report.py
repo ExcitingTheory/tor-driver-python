@@ -29,10 +29,10 @@ with open('output.csv', 'w') as csvfile:
     writer.writeheader()
     for searchItem in searchesToProcess:
         if len(searchItem["artifacts"]) >= 1:
-            _artifacts = searchItem["artifacts"]
+            artifacts = searchItem["artifacts"]
             searchItem["artifacts"] = "Multiple see below:"
             writer.writerow(searchItem)
-            for link in _artifacts:
+            for link in artifacts:
                 _blankRow = blankRow
                 data = link.get('data')
                 linkName = ""
