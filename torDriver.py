@@ -57,8 +57,7 @@ class TorDriver:
     # Sets up the firefox profile for the webdriver instance. 
     def setupProfile(self):
         _profile = FirefoxProfile(self._profileTor)
-
-        # The following lines 61-96 are from the firefox profile setup of tbselenium http://github.com/webfp/tor-browser-selenium
+        # The following lines 61-95 are from the firefox profile setup of tbselenium http://github.com/webfp/tor-browser-selenium
         _profile.set_preference('browser.startup.page', "0")
         _profile.set_preference('torbrowser.settings.quickstart.enabled', True)
         _profile.set_preference('browser.startup.homepage', 'about:newtab')
@@ -75,7 +74,6 @@ class TorDriver:
         _profile.set_preference('network.proxy.socks_port', self.port)
         _profile.set_preference('extensions.torbutton.socks_port', self.port)
         _profile.set_preference('extensions.torlauncher.control_port', self.ctrlPort)
-
         _profile.set_preference('extensions.torlauncher.start_tor', False)
         # TODO: investigate whether these prefs are up to date or not
         _profile.set_preference('extensions.torbutton.block_disk', False)
@@ -95,7 +93,6 @@ class TorDriver:
         # disable XPI signature checking
         _profile.set_preference('xpinstall.signatures.required', False)
         _profile.set_preference('xpinstall.whitelist.required', False)
-
         # Disable various features that leak information, see https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/
         _profile.set_preference("places.history.enabled", False)
         _profile.set_preference("privacy.clearOnShutdown.offlineApps", True)
@@ -108,18 +105,15 @@ class TorDriver:
         _profile.set_preference("network.http.sendRefererHeader", 0)
         # Disable images
         _profile.set_preference("permissions.default.image", 2)
-
         # More network related settings
         _profile.set_preference("network.proxy.type", 1)
         _profile.set_preference("network.proxy.socks_version", 5)
         _profile.set_preference("network.proxy.socks", '127.0.0.1')
         _profile.set_preference("network.proxy.socks_remote_dns", True)
-
         ##############################
         # This disables javascript, which may break some sites.
         # _profile.set_preference("javascript.enabled", False) # !!!!!
         ##############################
-
         # Set timeouts
         _profile.set_preference("http.response.timeout", 120000)
         _profile.set_preference("dom.max_script_run_time", 120000)
@@ -156,4 +150,3 @@ class TorDriver:
             except Exception as e:
                 print(e)
                 pass
-

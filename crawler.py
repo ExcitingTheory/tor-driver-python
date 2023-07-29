@@ -2,40 +2,34 @@
 """
 Sets up a WebDriver session using a local copy of TorBrowser, and Selenium via geckodriver. 
 """
-
 import time
 import pprint
-
 import re
 import csv
 import json
 import urllib
-
-import torDriver
-
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
-useFirstResult = True
-result = 0
-justTheTip = True
+import torDriver
+
 timeoutInSeconds = 5
 finalTimeoutInSeconds = 5
 listOfSearches = []
 termsToSearch = []
-key = 1
+# For each term a suffix can be added to focus the search more.
+suffix = ""
 
-torDriverInstance = torDriver.TorDriver()
 # Setup the TorBrowser and geckodriver
+torDriverInstance = torDriver.TorDriver()
 torDriverInstance.downloadGeckodriver()
 torDriverInstance.setupTor()
 
 # @description: Crawls from a search term
 # @param: searchTerm - The term to search for
-# @return: A collection of objects with the data and link
+# @return: A collection of objects with the data and links
 def crawlFromSearch(searchTerm):
     # Setup the webdriver
     driver = torDriverInstance.setupWebdriver()
@@ -64,28 +58,23 @@ def crawlFromSearch(searchTerm):
         raise SystemError("Issue browsing from search")
     
     # Use just the first result for now.
-    # Can start separate threads for each result here.
+    # Could start separate threads for each result here, but that can get aggressive.
     pprint.pprint(firstPageResults)
     thisUrl = firstPageResults[0].get_attribute('href')
     firstPageResults[0].click()
+
     # Wait for the page to load
-
     time.sleep(timeoutInSeconds)
+
     torDriver.isVisible(driver, "a")
-
-    print("This url")
-    print(thisUrl)
-    pprint.pprint(thisUrl)
-
     _url = urllib.parse.urlparse(thisUrl)
     print("Parsed url")
     pprint.pprint(_url)
-
     allUrls = driver.find_elements(By.XPATH, "//a")
-
     parsedCollection = []
     onPageUrls = []
     offPageUrls = []
+
     for url in allUrls:
         pprint.pprint(url.text)
         urlHref = url.get_attribute('href')
@@ -101,14 +90,9 @@ def crawlFromSearch(searchTerm):
 
     return parsedCollection
 
-
 # Read in the search terms
 with open("searches.txt", "r") as fileHandler:
     listOfSearches = fileHandler.readlines()
-
-
-# For each term, search and then crawl.
-suffix = ""
 
 for searchTerm in listOfSearches:
     if searchTerm:
@@ -145,4 +129,3 @@ for term in termsToSearch:
     with open(term["file"], "w") as txtFile:
         txtFile.write(json.dumps(term))
         print("Done writing file...", "\n", term["file"])
-
