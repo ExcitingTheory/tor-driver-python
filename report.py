@@ -25,6 +25,7 @@ for name in glob.glob('./results/*.json'):
         searchesToProcess.append(json.loads(fileLines[0])) # TODO - Loop through all lines if there are more than one, i.e. jsonl files.
 
 with open('output.csv', 'w') as csvfile:
+    # Built in, thanks Python: https://docs.python.org/3/library/csv.html
     writer = csv.DictWriter(csvfile, fieldnames=['key', 'num', 'rank', 'orig', 'file', 'name', 'search', 'artifacts'])
     writer.writeheader()
     for searchItem in searchesToProcess:
