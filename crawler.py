@@ -22,15 +22,15 @@ from selenium.webdriver.support import expected_conditions
 useFirstResult = True
 result = 0
 justTheTip = True
-timeoutInSeconds = 20
-finalTimeoutInSeconds = 20
+timeoutInSeconds = 5
+finalTimeoutInSeconds = 5
 listOfSearches = []
 termsToSearch = []
 key = 1
 
 torDriverInstance = torDriver.TorDriver()
 # Setup the TorBrowser and geckodriver
-# torDriverInstance.downloadGeckodriver() # TODO Fix in linux
+torDriverInstance.downloadGeckodriver()
 torDriverInstance.setupTor()
 
 # @description: Crawls from a search term
@@ -83,37 +83,19 @@ def crawlFromSearch(searchTerm):
 
     allUrls = driver.find_elements(By.XPATH, "//a")
 
-    print("All urls")
-    pprint.pprint(allUrls)
-
+    parsedCollection = []
     onPageUrls = []
     offPageUrls = []
-
     for url in allUrls:
-        print(url.get_attribute('href'))
+        pprint.pprint(url.text)
         urlHref = url.get_attribute('href')
-
-        if urlHref is not None:
-            if urlHref.startswith("http"):
-
-                if urlHref.startswith(f'{_url.scheme}://{_url.netloc}'):
-                    # Get all the on page urls
-                    print("On page")
-                    onPageUrls.append(urlHref)
-            else: 
-                # Get off page urls
-                print("Off page")
-                offPageUrls.append(urlHref)
-
-    print("On page urls")
-    pprint.pprint(onPageUrls)
-    print("Off page urls")
-    pprint.pprint(offPageUrls)
-
-    parsedCollection = [{
-        onPageUrls: onPageUrls,
-        offPageUrls: offPageUrls
-    }]
+        pprint.pprint(urlHref)
+        parsedObject = {
+            "data": url.text, # Any data as plain text or base64.
+            "link": urlHref, # Link to the data
+            "parent": thisUrl # Link to the parent page
+        }
+        parsedCollection.append(parsedObject)
 
     driver.quit()
 
@@ -142,7 +124,7 @@ for searchTerm in listOfSearches:
             "search": ' '.join([strippedWithSpaces, suffix]),
             "orig": searchTerm,
             "num": "",
-            "artifacts": [{}]
+            "artifacts": None
         })
 
 # For each term, search and then crawl
@@ -156,10 +138,11 @@ for term in termsToSearch:
     except Exception as e:
         print(f"Something bad happened looking for {term}")
         print(e)
-        continue
+        continue # Skip to the next term
 
-    print("Writing file...")
+    print("Writing file...", "\n", term["file"])
     # Write to file
     with open(term["file"], "w") as txtFile:
         txtFile.write(json.dumps(term))
-        print(term["file"])
+        print("Done writing file...", "\n", term["file"])
+
