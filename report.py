@@ -47,6 +47,8 @@ with open('output.csv', 'w') as csvfile:
                         linkName = _parsed.netloc
                 
                 linkName = re.sub(r'"', '', linkName) # Remove double quotes from the link name because it will break the CSV.
+                
+                # Some examples of making hyperlinks in the stack overflow article https://stackoverflow.com/questions/26928131/how-to-format-hyperlink-in-csv-file-for-excel-import-using-friendly-name 
                 _blankRow["artifacts"] = f"=HYPERLINK(\"{link.get('link')}\", \"{linkName}\")"
                 writer.writerow(_blankRow)
         else:
