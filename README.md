@@ -42,6 +42,39 @@ Run the report:
 python3 report.py
 ```
 
+## results
+
+Schema:
+
+```json
+{
+    "name": "Meow",
+    "file": "./results/meow.json",
+    "search": "Meow ",
+    "orig": "Meow\n",
+    "num": "",
+    "artifacts": [
+        {
+            "data": "Jump to content",
+            "link": "https://en.wikipedia.org/wiki/Meow#bodyContent",
+            "parent": "https://en.wikipedia.org/wiki/Meow"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Main_Page",
+            "parent": "https://en.wikipedia.org/wiki/Meow"
+        },
+        {
+            "data": "",
+            "link": "https://en.wikipedia.org/wiki/Wikipedia:Contents",
+            "parent": "https://en.wikipedia.org/wiki/Meow"
+        }
+        ....
+    ]
+}
+```
+
+
 ## References
 
 * [Tor Browser](https://www.torproject.org/)
