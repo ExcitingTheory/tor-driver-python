@@ -1,10 +1,8 @@
 # tor-driver-python
 
-Demonstration of how to use the Tor Browser and WebDriver in Python.
+The demo is a simple crawler that visits a few sites and then generates a report. The crawler is written in Python and uses Selenium to drive the Tor Browser.
 
 ## Run the demo
-
-The demo is a simple crawler that visits a few sites and then generates a report. The crawler is written in Python and uses Selenium to drive the Tor Browser.
 
 1. Install the Tor Browser.
 2. Run the crawler.
