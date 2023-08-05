@@ -21,6 +21,15 @@ Start the VNC server:
 /opt/start-vnc-server-once.sh
 ```
 
+#### On macOS
+
+With Finder open as the main app. Press cmd-k the "Connect to Server Dialog" will open. Enter `vnc://localhost:5901` and the password guestpas when prompted.
+Dialog can also be found in the finder menu: Go -> Connect to Server
+
+#### On Windows
+
+Download and install a vnc client like TightVNC and connect to `localhost:5901` and the password guestpas when prompted.
+
 Go to the correct directory:
 
 ```bash
